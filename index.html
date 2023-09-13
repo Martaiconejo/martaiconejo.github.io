@@ -12,18 +12,18 @@
 <!-- https://www.pexels.com/video/aerial-view-of-beautiful-resort-2169880/ -->
 <section class="showcase">
   <header>
-    <h2 class="logo">Travel</h2>
+    
   </header>
-  <img src="cafe.jpg" class="container-fluid">
+  
   <div class="overlay"></div>
+
   <div class="text">
-    <h2>Never Stop To </h2>
-    <h3>Exploring The World</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat.</p>
-    <a href="#">Explore</a>
+    <h2>Mexica </h2>
+    <h3>Investigación de Marca</h3>
+    <p>¡Hola!. Somos un grupo de investigación de la Universidad de Granada. Estamos realizando una investigación para analizar la imagen de marca de Mexica, una nueva marca de café de especialidad que se comercializará durante el próximo año.</p>
+    <p>Te pedimos que respondas con total sinceridad a las preguntas, el cuestionario es anónimo y los datos serán tratado de forma agregada y confidencial. El tiempo para responder es breve, sólo te solicitamos 3 minutos.</p>
+    <p>Muchas gracias por tu colaboración.</p>
+    <a id="miBoton" href="#">Formulario</a>
   </div>
 </section>
 <div class="menu">
@@ -36,13 +36,23 @@
   </ul>
 </div>
 </body>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-  <script src="script.js" type="text/javascript"> const menuToggle = document.querySelector('.toggle');
-      const showcase = document.querySelector('.showcase');
 
-      menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('active');
-        showcase.classList.toggle('active');
-      })</script>
 </html>
+  <script type="text/javascript">
+            var miBoton = document.getElementById('miBoton');
+
+        miBoton.addEventListener('click', function() {
+      console.log("puntoG");
+            // Array de URLs predefinidas
+            var urls = [
+                'https://forms.gle/EbkHnQsxyomJA2Ly9',
+                'https://forms.gle/qXAMiWsx8pXXMy1y9'
+            ];
+
+            // Generar un índice aleatorio (0 o 1) para seleccionar una URL al azar
+            var indiceAleatorio = Math.floor(Math.random() * urls.length);
+
+            // Redirigir al usuario a la URL seleccionada aleatoriamente
+            window.location.href = urls[indiceAleatorio];
+        });
+  </script>

@@ -81,6 +81,8 @@ header .logo
   height: 100%;
   background: #03a9f4;
   mix-blend-mode: overlay;
+  background-image: url(cafe.jpg);
+    background-size: contain;
 }
 .text
 {
