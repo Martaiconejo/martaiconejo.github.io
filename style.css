@@ -1,175 +1,203 @@
-.container-fluid.main{
-  position: relative; /* To make the navbar positions relative to this container */
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+*
+{
+  margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
-
-.navbar-default {
-  background-image: none;
-  background-color: transparent; /* Make the menu become transparent */
-  border-radius: 0px;
-  border: 0;
-  box-shadow: none;
-  padding: 10px;
-  position: absolute; /* Make the menu out of the document flow so it can placed anywhere without disturbing other widgets */
+header
+{
+  position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  z-index: 10; /* If you delete this line, your menu link won't be clicked because it is behind the background. Applying this code bring the menu in front of the background */
+  width: 100%;
+  padding: 40px 100px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
-.navbar-default .navbar-brand {
-  font-family: Verdana;
-  color: #ffffff;
-  font-size: 20px;
+header .logo
+{
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
 }
-
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-.navbar-default .navbar-nav > li > a {
-  color: #ffffff;
-}
-
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
-  color: #ffffff;
-  background-color: transparent;
-}
-
-.navbar-default .navbar-toggle {
-  border-color: transparent;
-}
-
-.navbar-default .navbar-toggle:hover {
-  background-color: transparent;
-}
-
-.navbar-default .navbar-toggle:focus {
-  background-color: transparent;
-}
-
-.navbar-default .navbar-toggle .icon-bar {
-  background-color: #ffffff;
-}
-
-.carousel .background {
-  background-position: center center;
-  background-size: 100% 100%;
+.toggle
+{
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background: url(https://i.ibb.co/HrfVRcx/menu.png);
   background-repeat: no-repeat;
-  height: 700px;
+  background-size: 30px;
+  background-position: center;
+  cursor: pointer;
+}
+.toggle.active
+{
+  background: url(https://i.ibb.co/rt3HybH/close.png);
+  background-repeat: no-repeat;
+  background-size: 25px;
+  background-position: center;
+  cursor: pointer;
+}
+.showcase
+{
+  position: absolute;
+  right: 0;
+  width: 100%;
+  min-height: 100vh;
+  padding: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111;
+  transition: 0.5s;
+  z-index: 2;
+}
+.showcase.active
+{
+  right: 300px;
 }
 
-@media (max-width:991px) {
-  .carousel .background {
-    background-size: cover; /* To make the background image looks good */
-  }
+.showcase video
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+.overlay
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #03a9f4;
+  mix-blend-mode: overlay;
+}
+.text
+{
+  position: relative;
+  z-index: 10;
 }
 
-.carousel .background.a {
-  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://static.pexels.com/photos/92090/pexels-photo-92090-large.jpeg");
+.text h2
+{
+  font-size: 5em;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1em;
+  text-transform: uppercase;
 }
-
-.carousel .background.b {
-  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://static.pexels.com/photos/93750/pexels-photo-93750-large.jpeg");
+.text h3
+{
+  font-size: 4em;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1em;
+  text-transform: uppercase;
 }
-
-.carousel .background.c {
-  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://static.pexels.com/photos/76827/bahia-ocean-bay-boat-76827-large.jpeg");
+.text p
+{
+  font-size: 1.1em;
+  color: #fff;
+  margin: 20px 0;
+  font-weight: 400;
+  max-width: 700px;
 }
-
-.carousel-fade .carousel-inner .item {
-  opacity: 0;
-  transition: opacity 0.5s; /* The 0.5s describes the duration to make the opacity from 0 to 1 */
-}
-
-.carousel-fade .carousel-inner .active {
-  opacity: 1;
-}
-
-/* CSS Hack to trigger GPU for smooth transition */
-@media all and (transform-3d),
-(-webkit-transform-3d) {
-  .carousel-fade .carousel-inner > .item.next,
-  .carousel-fade .carousel-inner > .item.active.right {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-  .carousel-fade .carousel-inner > .item.prev,
-  .carousel-fade .carousel-inner > .item.active.left {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-  .carousel-fade .carousel-inner > .item.next.left,
-  .carousel-fade .carousel-inner > .item.prev.right,
-  .carousel-fade .carousel-inner > .item.active {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-}
-/* CSS Hack to trigger GPU for smooth transition */
-
-.covertext {
-  position: absolute; /* To make the div to be place anywhere. It is out of the document flow */
-  top: 200px; /* The distance between the div with the top of document */
-  left: 0px; /* Make the div full width */
-  right: 0px; /* Make the div full width */
-}
-
-.title {
-  font-family: Verdana;
-  font-weight: 600;
-  font-size: 60px;
-  color: #ffffff;
-  text-align: center;
-}
-
-.subtitle {
-  font-family: Verdana;
-  font-size: 23px;
-  color: #ffffff;
-  text-align: center;
-}
-
-.explore {
-  text-align: center;
+.text a
+{
+  display: inline-block;
+  font-size: 1em;
+  background: #fff;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
   margin-top: 10px;
+  color: #111;
+  letter-spacing: 2px;
+  transition: 0.2s;
+}
+.text a:hover
+{
+  letter-spacing: 6px;
+}
+.social
+{
+  position: absolute;
+  z-index: 10;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.social li
+{
+  list-style: none;
+}
+.social li a
+{
+  display: inline-block;
+  margin-right: 20px;
+  filter: invert(1);
+  transform: scale(0.5);
+  transition: 0.5s;
+}
+.social li a:hover
+{
+  transform: scale(0.5) translateY(-15px);
+}
+.menu
+{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu ul
+{
+  position: relative;
+}
+.menu ul li
+{
+  list-style: none;
+}
+.menu ul li a
+{
+  text-decoration: none;
+  font-size: 24px;
+  color: #111;
+}
+.menu ul li a:hover
+{
+  color: #03a9f4; 
 }
 
-.explore .btn-lg,
-.explore .btn-lg:hover {
-  border-radius: 30px;
-  padding: 15px 25px;
-  font-size: 22px;
-  background-image: none;
-  background-color: #FF4000;
-  border-color: #FF4000;
-  color: #ffffff;
-}
-
-.btn,
-.btn:hover {
-  border-radius: 0px;
-  background-image: none;
-  background-color: #FF4000;
-  border-color: #FF4000;
-  color: #ffffff;
-  margin-bottom: 20px;
-  box-shadow: none;
-  outline: none;
-}
-
-.btn:focus,
-.btn:active:focus,
-.btn.active:focus,
-.btn.focus,
-.btn:active.focus,
-.btn.active.focus {
-  color: #ffffff;
-  outline: none;
+@media (max-width: 991px)
+{
+  .showcase,
+  .showcase header
+  {
+    padding: 40px;
+  }
+  .text h2
+  {
+    font-size: 3em;
+  }
+  .text h3
+  {
+    font-size: 2em;
+  }
 }
